@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :introduction, length:{maximum:50}
 
   has_many :followers, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-has_many :followeds, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followeds, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
 
 
 has_many :following_users, through: :followers, source: :followed
@@ -24,8 +24,8 @@ has_many :follower_users, through: :followeds, source: :follower
   end
 
   def follow(user_id)
-  followers.create(followed_id: user_id)
-end
+   followers.create(followed_id: user_id)
+  end
 
 
 def unfollow(user_id)
