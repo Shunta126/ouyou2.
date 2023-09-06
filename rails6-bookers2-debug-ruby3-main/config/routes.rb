@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   resources :book_comments, only: [:create, :destroy]
   end
 
-  resources :users, only: [:index, :show, :edit, :create, :update]
+  resources :users, only: [:index, :show, :edit, :create, :update]do
+    member do
+      get :follows, :followers
+    end
+    resource :relationships, only: [:create, :destroy]
+  end
   get '/home/about', to: 'homes#about', as: 'about'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
