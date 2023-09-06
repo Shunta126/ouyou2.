@@ -59,10 +59,12 @@
       <% end %>
 
        <td>
+       <div class=form-horizontal”>
        <%= form_with model: [@book, @book_comment] do |f| %>
        <%= f.text_area :comment, rows: '4' %></br>
        <%= f.submit "送信する" %>
        <% end %>
+       </div>
        </td>
       </table>
 
