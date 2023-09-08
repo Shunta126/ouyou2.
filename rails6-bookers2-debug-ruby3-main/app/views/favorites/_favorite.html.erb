@@ -8,7 +8,8 @@
   <% else %>
   <p>
       <%= link_to book_favorites_path(book), method: :post, remote: true, data: {"turbolinks" => false} do %>
-        ♡<%= book.favorites.count %>
+       <i class="fas fa-heart" aria-hidden="true" style="color: blue;"></i>
+       <span style="color: blue;"><%= book.favorites.count %></span>
       <% end %>
   </p>
 <% end %>
